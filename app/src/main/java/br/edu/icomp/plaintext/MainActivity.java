@@ -1,12 +1,14 @@
 package br.edu.icomp.plaintext;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,5 +45,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void onEnterClicked(View view) {
         Toast.makeText(this, "Hi there!", Toast.LENGTH_SHORT).show();
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuItemAbout:
+                AlertDialog.Builder alert = new AlertDialog.Builder(this);
+                alert.setMessage("PlainText Password Manager v1.0").setNeutralButton("Ok", null).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
