@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onEnterClicked(View view) {
-        Toast.makeText(this, "Hi there!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, String.format("Olá %s !!", ((EditText) findViewById(R.id.loginEditText)).getText().toString()), Toast.LENGTH_SHORT).show();
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
