@@ -1,12 +1,12 @@
 package br.edu.icomp.plaintext;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,7 +45,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onEnterClicked(View view) {
-        Toast.makeText(this, String.format("Olá %s !!", ((EditText) findViewById(R.id.loginEditText)).getText().toString()), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ListActivity.class);
+
+        intent.putExtra("login", ((EditText) findViewById(R.id.loginEditText)).getText().toString());
+
+        startActivity(intent);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
