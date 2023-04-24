@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'br.edu.icomp.plaintext'
-    compileSdk 33
+    compileSdk 32
 
     defaultConfig {
         applicationId "br.edu.icomp.plaintext"
