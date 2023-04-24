@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PlainText</string>
+    <string name="credential_header">Digite suas credenciais para continuar</string>
+    <string name="login_field">Login</string>
+    <string name="password_field">Senha</string>
+    <string name="save_login_message">Salvar informação do login</string>
+    <string name="enter_button">Entrar</string>
+    <string name="text_slogan">\"The most secure password manager\"</string>
+    <string name="text_slogan_authors">Bob and Alice</string>
+    <string name="about">Sobre</string>
+    <string name="menu_item_settings">Configurações</string>
+</resources>
