@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Geral">
+        <EditTextPreference
+            android:dialogTitle="Setar Login"
+            android:key="login"
+            android:summary="Login para entrar no sistema"
+            android:title="Setar Login" />
+
+        <EditTextPreference
+            android:dialogMessage="Digita a senha"
+            android:dialogTitle="Setar Senha"
+            android:inputType="textPassword"
+            android:summary="Senha para entrar no sistema"
+            android:key="password"
+            android:title="Setar Senha" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="showLogin"
+            android:summary="Preencher login na tela inicial"
+            android:title="Preencher login" />
+    </PreferenceCategory>
+</PreferenceScreen>

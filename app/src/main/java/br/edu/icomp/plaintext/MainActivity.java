@@ -1,15 +1,18 @@
 package br.edu.icomp.plaintext;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,11 +48,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onEnterClicked(View view) {
-        Intent intent = new Intent(this, ListActivity.class);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String prefLogin = sharedPreferences.getString("login", "");
+        String prefPass = sharedPreferences.getString("password", "");
 
-        intent.putExtra("login", ((EditText) findViewById(R.id.loginEditText)).getText().toString());
+        String editLogin = ((EditText) findViewById(R.id.loginEditText)).getText().toString();
+        String editPass = ((EditText) findViewById(R.id.passwordEditText)).getText().toString();
 
-        startActivity(intent);
+        if (editLogin.equals(prefLogin) && editPass.equals(prefPass)) {
+            Intent intent = new Intent(this, ListActivity.class);
+            EditText inputLogin = findViewById(R.id.loginEditText);
+            intent.putExtra("login", inputLogin.getText().toString());
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Login/Senha inválidos!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -57,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menuItemAbout:
                 AlertDialog.Builder alert = new AlertDialog.Builder(this);
                 alert.setMessage("PlainText Password Manager v1.0").setNeutralButton("Ok", null).show();
+                return true;
+            case R.id.menuItemSettings:
+                startActivity(new Intent(this, PreferencesActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
